@@ -12,8 +12,5 @@ public class Mahasiswa11 {
     }
     public void tampilInformasi() {
         System.out.println(nim + " - " + nama + "  - " + kelas + " - " + ipk);
-    }
-
-    
-    
+    }  
 }

@@ -1,5 +1,3 @@
-
-
 public class NodeMahasiswa11 {
     Mahasiswa11 data;
     NodeMahasiswa11 next;
