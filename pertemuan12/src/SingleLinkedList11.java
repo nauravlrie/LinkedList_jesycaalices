@@ -71,4 +71,79 @@ public class SingleLinkedList11 {
             }
         }
     }
+    public void getData (int index) {
+        NodeMahasiswa11 tmp = head;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        tmp.data.tampilInformasi();
+    }
+    public int indexOf(String key) {
+        NodeMahasiswa11 tmp = head;
+        int index = 0;
+        while (tmp != null && !tmp.data.nama.equalsIgnoreCase(key)) {
+            tmp = tmp.next;
+            index++;
+        }
+        if (tmp == null) {
+            return -1;
+        } else {
+            return index;
+        }
+    }
+    public void removeFirst () {
+        if (isEmpty()) {
+            System.out.println("Linked List masih Kosong, tidak dapat dihapus!");
+        } else if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+        }
+    }
+    public void removeLast () {
+        if (isEmpty()) {
+            System.out.println("Linked List masih Kosong, tidak dapat dihapus!");
+        } else if (head == tail) {
+            head = tail = null;
+        } else {
+            NodeMahasiswa11 tmp = head;
+            while (tmp.next != tail) {
+                tmp = tmp.next;
+            }
+            tmp.next = null;
+            tail = tmp;
+        }
+    }
+    public void remove (String key) {
+        if (isEmpty()) {
+            System.out.println("Linked List masih Kosong, tidak dapat dihapus!");
+        } else {
+            NodeMahasiswa11 tmp = head;
+            while (tmp != null) {
+                if ((tmp.data.nama.equalsIgnoreCase(key)) && (tmp == head)) {
+                    this.removeFirst();
+                    break;
+                } else if (tmp.data.nama.equalsIgnoreCase(key)) {
+                    tmp.next = tmp.next.next;
+                    tail = tmp;
+                }
+                break;
+            }
+            tmp = tmp.next;
+        }
+    }
+    public void removeAt (int index) {
+        if (index == 0) {
+            removeFirst();
+        } else {
+            NodeMahasiswa11 tmp = head;
+            for (int i = 0; i < index - 1; i++) {
+                tmp = tmp.next;
+            }
+            tmp.next = tmp.next.next;
+            if (tmp.next == null) {
+                tail = tmp;
+            }
+        }
+    }
 }
